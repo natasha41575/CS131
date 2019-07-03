@@ -1,0 +1,70 @@
+When I was writing the code for the make_parser and make_matcher functions,
+I ultimately decided to implement the two functions in such a way that they
+ended up not depending on each other. There are a few reasons for this. 
+I wrote make_matcher before writing make_parser. This seemed logical to me
+because make_matcher was part 3 and make_parser was part 4, so I interpreted
+this as meaning that make_matcher was a step toward writing make_parser. 
+When I got to make_parser, I immediately realized that it would have a 
+similar recursive structure as make_matcher; in both of these functions, I
+would need to iterate over each rule in the grammar until a match was found, 
+and in both functions the order in which I needed to parse the rules was the
+same. I initially spent a very long time trying to figure out how to write
+the make_parser function in terms of make_matcher. Although the functions 
+were supposed to return different things - the make_matcher was supposed to
+return whatever the acceptor returned and the make_parser was supposed to 
+construct a parse tree during the recursion - they seemed similar enough that
+one could be written terms of the other. Unfortunately, after spending a lot
+of time trying this approach, I gave up on it.
+
+The next thing I tried was to write my make_parser function in a very similar
+way as I wrote my make_matcher function; that is, I tried to have a similar
+format of mutually recursive functions that iterate through the grammar in
+the same order. I tried to make the function such that it constructed the 
+parse tree while parsing through these rules to find a match. In the end, 
+however, I ended up with a parse tree that was incorrect: instead of being a
+nice parse tree that had multiple nodes and branches spreading out in the 
+correct format, I ended up with a parse tree that was more like a list; it
+had a root node and then a series of nodes that went down one side, so that
+the parse tree more closely represented a single rule with a long path down
+that rule than a parse tree that represented all of the different rules that 
+I matched the fragment with. This version of the code passed test case 7 but
+not test case 6; I had all the right leaves, but not the right structure.
+This was particularly frustrating, as I was clearly iterating in the correct
+order and matching the correct rules; there was just something wrong with the
+way that I was constructing the tree. After attempting to debug this method 
+for a few days, I gave up and attempted a different approach. 
+
+The third and final approach (the one that actually worked!) that I used to
+implement my make_parser function was to separate the method of recursing
+through the grammar to find a match and the actual construction of the parse
+tree itself. The code that I submitted broke down the problem into two sub-
+problems: (1) it gets a list of the rules that were matched, starting with the
+top-level rule followed by the rules matched upon expansion of that top-level
+rule until it reached a terminal symbol, and (2) it takes this list of matched
+rules and the fragment and constructs the final parse tree. Although this 
+seemed like a very roudabout way to solve the problem, and although my make_
+parser definitely duplicates some of the process of make_matcher, I found that
+this method was the easiest to write and was the only one of my three 
+attempted method that I could actually get to past test case 6. 
+
+So, ultimately my reason for separating make_parser and make_matcher instead
+of avoiding the duplication in the way they both parse the grammar in the same
+order is because duplicating make_matcher and slightly modifying that 
+duplicated code turned out to be the easiest and most intuitive way to 
+implement that make_parser function, at least for me. 
+
+
+In my intended application, the solution I wrote for make_parser seems to be a
+little roundabout. Although the code does work on the test cases provided and 
+on my own test cases that I wrote, it is probably not the most efficient way 
+to construct the parse tree given the list of rules and the fragment. 
+Efficiency is probably the biggest weakness of my code.
+
+My code works for most (if not all) of the test cases for the grammar we
+were given in the sample test cases.
+
+However, These functions probably wouldn't work on more complex recursive 
+grammars (it might lead to infinite loops) as it tests just one
+rule at a time until it reaches a terminal along the path for
+that rule - if there are paths that don't reach a terminal my
+code would get into trouble.

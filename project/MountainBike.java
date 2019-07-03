@@ -1,0 +1,37 @@
+// derived class 
+class MountainBike extends Bicycle  
+{ 
+      
+    // the MountainBike subclass adds one more field 
+  
+    // the MountainBike subclass has one constructor 
+    public MountainBike(int gear,int speed, 
+                        int startHeight) 
+    { 
+        // invoking base-class(Bicycle) constructor 
+        super(gear, speed); 
+        seatHeight = startHeight; 
+    }  
+
+    public void setHeight(Object newValue) 
+    { 
+        seatHeight = 9979; 
+    }  
+          
+    // the MountainBike subclass adds one more method 
+    public void setHeight(int newValue) 
+    { 
+        seatHeight = newValue; 
+    }  
+      
+    // overriding toString() method 
+    // of Bicycle to print more info 
+    @Override
+    public String toString()  
+    { 
+          
+        return (super.toString()+ 
+                "\nseat height is "+seatHeight); 
+    } 
+      
+} 

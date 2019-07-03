@@ -1,0 +1,21 @@
+For my statistics, I tried the test case: 
+
+?- tower(5, T1, counts([5,3,3,2,1],[1,2,3,3,2],[5,3,3,2,1],[1,2,2,3,2]))
+
+vs 
+
+?- plain_tower(5, T2, counts([5,3,3,2,1],[1,2,3,3,2],[5,3,3,2,1],[1,2,2,3,2])).
+
+I found that for this case, my tower ran in about one second, while my
+plain_tower ran for about 7 minutes. My reported speed up was 292207.
+
+I ran ambiguous as
+
+| ?- ambiguous(N, C, T1, T2).
+
+And this was my result:
+
+C = counts([4,2,2,1],[1,2,2,4],[4,2,2,1],[1,2,2,4])
+N = 4
+T1 = [[1,2,3,4],[2,1,4,3],[3,4,1,2],[4,3,2,1]]
+T2 = [[1,2,3,4],[2,4,1,3],[3,1,4,2],[4,3,2,1]]

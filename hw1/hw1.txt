@@ -1,0 +1,33 @@
+For problem 1, I wrote a recursive function. The base case was the empty list; the
+empty list is a subset of every other list. If the list wasn't empty, then I broke
+up the list into a head and a tail. If the head was in the other list, then I 
+recursively called the subset function on the tail, otherwise I returned false.
+
+For problem 2, I used the definition of equal sets. I checked if the two sets were
+subsets of each other.
+
+For problem 3, I used the subset function to check if the head of one set was in 
+the other set. If it was, I ignored it, otherwise I added it to the other set. I then
+recursively called the function on the tail.
+
+For problem 4, I used the built in List.filter function. Originally I attempted to
+do something somewhat similar to problem 3, but then upon learning about the filter 
+function, it seemed much easier to just use this built-in function than trying to 
+define my own new function to do the same thing.
+
+For problem 5, I originally used List.filter to remove things in a that were not in b, 
+which solved the problem. However, I found it easier to write the function such that
+it guaranteed that the set difference that resulted would be in reverse order. This 
+guarantee made it easier to solve problem 7.
+
+For problem 6, I used the definition of a computed fixed point; that is, I checked if
+f(x) = x, and if it did I returned x. Otherwise I called the computed fixed point
+function again using, passing in f(x) as my new x. This function recurses infinitely
+if such a point does not exist.
+
+For problem 7, I added my start symbol to my list of expressions. Then, I went through
+the list of expressions to extract rules that had a matching left hand side, and 
+added its right hand side to my list of expressions. I then deleted the rule from the
+list of rules. If such a rule is never found I delete it from my list of expressions.
+This gives me my final answer: a list of the original rules minus all the unreachable 
+rules. 

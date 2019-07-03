@@ -1,0 +1,5 @@
+using server Goloman
+host: 127.0.0.1	port: 12275
+
+
+server closed	time:1552410831.710428

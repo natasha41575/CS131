@@ -1,0 +1,85 @@
+Using 1000000 transitions
+
+Null model with 1 threads:
+Threads average 37.2003 ns/transition
+
+Null model with 2 threads:
+Threads average 84.2381 ns/transition
+
+Null model with 4 threads:
+Threads average 283.629 ns/transition
+
+Null model with 8 threads:
+Threads average 1684.35 ns/transition
+
+Null model with 16 threads:
+Threads average 4589.64 ns/transition
+
+Synchronized model with 1 threads:
+Threads average 73.7564 ns/transition
+
+Synchronized model with 2 threads:
+Threads average 231.137 ns/transition
+
+Synchronized model with 4 threads:
+Threads average 1057.36 ns/transition
+
+Synchronized model with 8 threads:
+Threads average 1962.75 ns/transition
+
+Synchronized model with 16 threads:
+Threads average 3755.47 ns/transition
+
+Unsynchronized model with 1 threads:
+Threads average 41.5016 ns/transition
+
+Unsynchronized model with 2 threads:
+Threads average 116.267 ns/transition
+sum mismatch (6068 != 5789)
+
+Unsynchronized model with 4 threads:
+Threads average 575.463 ns/transition
+sum mismatch (6068 != 6071)
+
+Unsynchronized model with 8 threads:
+Threads average 1748.39 ns/transition
+sum mismatch (6068 != 4299)
+
+Unsynchronized model with 16 threads:
+Threads average 3965.54 ns/transition
+sum mismatch (6068 != 5396)
+
+GetNSet model with 1 threads:
+Threads average 57.8514 ns/transition
+
+GetNSet model with 2 threads:
+Threads average 404.293 ns/transition
+sum mismatch (6068 != 5919)
+
+GetNSet model with 4 threads:
+Threads average 643.645 ns/transition
+sum mismatch (6068 != 6898)
+
+GetNSet model with 8 threads:
+Threads average 1287.68 ns/transition
+sum mismatch (6068 != 6408)
+
+GetNSet model with 16 threads:
+Threads average 2971.33 ns/transition
+sum mismatch (6068 != 6802)
+
+BetterSafe model with 1 threads:
+Threads average 67.9920 ns/transition
+
+BetterSafe model with 2 threads:
+Threads average 484.685 ns/transition
+
+BetterSafe model with 4 threads:
+Threads average 527.673 ns/transition
+
+BetterSafe model with 8 threads:
+Threads average 1194.35 ns/transition
+
+BetterSafe model with 16 threads:
+Threads average 2424.93 ns/transition
+
